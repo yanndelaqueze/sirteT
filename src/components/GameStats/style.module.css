@@ -1,0 +1,24 @@
+.game_stats {
+  position: absolute;
+  width: 22vw;
+  list-style-type: none;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.game_stats_left {
+  right: 0;
+  bottom: 22vh;
+  text-align: left;
+}
+
+.game_stats_right {
+  right: 0;
+  bottom: 0;
+  text-align: left;
+}
+
+.game_stats .value {
+  font-size: 2.8rem;
+  margin-bottom: 0.5em;
+  color: rgba(255, 255, 255, 1);
+}
