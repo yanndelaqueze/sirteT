@@ -5,6 +5,7 @@ import { useBoard } from "../../hooks/useBoard";
 import { useGameStats } from "../../hooks/useGameStats";
 import { usePlayer } from "../../hooks/usePlayer";
 import { Previews } from "../Previews/Previews";
+import { GameController } from "../GameController/GameController";
 
 export function Sirtet({ rows, columns, setGameOver }) {
   const [gameStats, addLinesCleared] = useGameStats();
@@ -24,6 +25,13 @@ export function Sirtet({ rows, columns, setGameOver }) {
       <Board board={board} />
       <GameStats gameStats={gameStats} />
       <Previews tetrominoes={player.tetrominoes} />
+      <GameController
+        board={board}
+        gameStats={gameStats}
+        player={player}
+        setGameOver={setGameOver}
+        setPlayer={setPlayer}
+      />
     </div>
   );
 }
