@@ -2,10 +2,11 @@ import s from "./style.module.css";
 
 import { buildBoard } from "../../business/Board";
 import { transferToBoard } from "../../business/Tetrominoes";
+import { memo } from "react";
 
 import { BoardCell } from "../BoardCell/BoardCell";
 
-export function Preview({ tetromino, index }) {
+export const Preview = memo(({ tetromino, index }) => {
   const { shape, className } = tetromino;
   const board = buildBoard({ rows: 4, columns: 4 });
   const style = { top: `${index * 15}vw` };
@@ -29,4 +30,4 @@ export function Preview({ tetromino, index }) {
       </div>
     </div>
   );
-}
+});

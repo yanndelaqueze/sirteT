@@ -1,10 +1,9 @@
-import s from "./style.module.css";
+import "./BoardCell.css";
 
 export function BoardCell({ cell }) {
-  console.log(s.board_cell);
   return (
-    <div className={`${s.board_cell} ${cell.className}`}>
-      <div className={s.sparkle}></div>
+    <div className={`board_cell ${cell.className}`}>
+      <div className="sparkle"></div>
     </div>
   );
 }
