@@ -1,5 +1,5 @@
 import s from "./style.module.css";
-import { Action, actionForKey } from "../../business/Input";
+import { Action, actionForKey, actionIsDrop } from "../../business/Input";
 import { playerController } from "../../business/PlayerController";
 import { useInterval } from "../../hooks/useInterval";
 import { useDropTime } from "../../hooks/useDropTime";
@@ -17,18 +17,31 @@ export function GameController({
 
   useInterval(() => {
     handleInput({ action: Action.SlowDrop });
-  }, 1000);
+  }, dropTime);
 
-  function onKeyUp({ code }) {
-    const action = actionForKey(code);
-    if (action === Action.Quit) {
-      setGameOver(true);
-    }
+  function onKeyUp(e) {
+    const action = actionForKey(e.key);
+    if (actionIsDrop(action)) resumeDropTime();
   }
 
-  function onKeyDown({ code }) {
-    const action = actionForKey(code);
-    handleInput({ action });
+  function onKeyDown(e) {
+    const action = actionForKey(e.key);
+
+    if (action === Action.Pause) {
+      if (dropTime) {
+        pauseDropTime();
+      } else {
+        resumeDropTime();
+      }
+    } else if (action === Action.Quit) {
+      setGameOver(true);
+    } else {
+      if (actionIsDrop(action)) pauseDropTime();
+      if (!dropTime) {
+        return;
+      }
+      handleInput({ action });
+    }
   }
 
   function handleInput({ action }) {

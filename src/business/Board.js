@@ -1,5 +1,6 @@
 import { defaultCell } from "./Cell";
 import { transferToBoard } from "./Tetrominoes";
+import { movePlayer } from "./PlayerController";
 
 export function buildBoard({ rows, columns }) {
   const builtRows = Array.from({ length: rows }, () =>
@@ -12,6 +13,25 @@ export function buildBoard({ rows, columns }) {
   };
 }
 
+function findDropPosition({ board, position, shape }) {
+  let max = board.size.rows - position.row + 1;
+  let row = 0;
+
+  for (let i = 0; i < max; i++) {
+    const delta = { row: i, column: 0 };
+    const result = movePlayer({ delta, position, shape, board });
+    const { collided } = result;
+
+    if (collided) {
+      break;
+    }
+
+    row = position.row + i;
+  }
+
+  return { ...position, row };
+}
+
 export function nextBoard({ board, player, resetPlayer, addLinesCleared }) {
   const { tetromino, position } = player;
 
@@ -22,13 +42,54 @@ export function nextBoard({ board, player, resetPlayer, addLinesCleared }) {
     row.map((cell) => (cell.occupied ? cell : { ...defaultCell }))
   );
 
-  rows = transferToBoard({
-    className: tetromino.className,
-    isOccupied: player.collided,
-    position: position,
-    rows: rows,
+  // Drop position
+  const dropPosition = findDropPosition({
+    board,
+    position,
     shape: tetromino.shape,
   });
+
+  // Place ghost
+  const className = `${tetromino.className} ${
+    player.isFastDropping ? "" : "ghost"
+  }`;
+  rows = transferToBoard({
+    className,
+    isOccupied: player.isFastDropping,
+    position: dropPosition,
+    rows,
+    shape: tetromino.shape,
+  });
+
+  // Place the piece.
+  // If it collided, mark the board cells as collided
+  if (!player.isFastDropping) {
+    rows = transferToBoard({
+      className: tetromino.className,
+      isOccupied: player.collided,
+      position,
+      rows,
+      shape: tetromino.shape,
+    });
+  }
+
+  // Check for cleared lines
+  const blankRow = rows[0].map((_) => ({ ...defaultCell }));
+  let linesCleared = 0;
+  rows = rows.reduce((acc, row) => {
+    if (row.every((column) => column.occupied)) {
+      linesCleared++;
+      acc.unshift([...blankRow]);
+    } else {
+      acc.push(row);
+    }
+
+    return acc;
+  }, []);
+
+  if (linesCleared > 0) {
+    addLinesCleared(linesCleared);
+  }
 
   // If we collided, reset the player!
   if (player.collided || player.isFastDropping) {
