@@ -1,13 +1,14 @@
 import s from "./style.module.css";
 
-export function Settings({ onClickAddRows, onClickRemoveRows }) {
+export function Settings({ onClickAdd, onClickRemove }) {
   return (
     <div>
-      <div className={s.add} onClick={onClickAddRows}>
-        ADD
+      <h1>GAME SETTINGS</h1>
+      <div className={s.add} onClick={onClickAdd}>
+        BIGGER +
       </div>
-      <div className={s.remove} onClick={onClickRemoveRows}>
-        REMOVE
+      <div className={s.remove} onClick={onClickRemove}>
+        SMALLER -
       </div>
     </div>
   );

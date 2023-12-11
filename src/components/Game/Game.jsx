@@ -10,12 +10,16 @@ export function Game() {
   const [rows, setRows] = useState(20);
   const [columns, setColumns] = useState(10);
 
-  function increaseRows() {
-    setRows((prevRows) => prevRows + 2);
-    setColumns((prevColumns) => prevColumns + 1);
+  function increaseBoard() {
+    if (rows >= 50) {
+      return;
+    } else {
+      setRows((prevRows) => prevRows + 2);
+      setColumns((prevColumns) => prevColumns + 1);
+    }
   }
 
-  function decreaseRows() {
+  function decreaseBoard() {
     if (rows <= 14) {
       return;
     } else {
@@ -35,10 +39,7 @@ export function Game() {
       {gameOver ? (
         <>
           <Menu onClick={start} />
-          <Settings
-            onClickAddRows={increaseRows}
-            onClickRemoveRows={decreaseRows}
-          />
+          <Settings onClickAdd={increaseBoard} onClickRemove={decreaseBoard} />
         </>
       ) : (
         <Sirtet rows={rows} columns={columns} setGameOver={setGameOver} />
