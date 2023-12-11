@@ -13,15 +13,15 @@ export function Game() {
   function increaseRows() {
     setRows((prevRows) => prevRows + 2);
     setColumns((prevColumns) => prevColumns + 1);
-    console.log("rows:", rows);
-    console.log("cols:", columns);
   }
 
   function decreaseRows() {
-    setRows((prevRows) => prevRows - 2);
-    setColumns((prevColumns) => prevColumns - 1);
-    console.log("rows:", rows);
-    console.log("cols:", columns);
+    if (rows <= 14) {
+      return;
+    } else {
+      setRows((prevRows) => prevRows - 2);
+      setColumns((prevColumns) => prevColumns - 1);
+    }
   }
 
   function start() {
