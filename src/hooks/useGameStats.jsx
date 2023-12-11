@@ -5,6 +5,7 @@ const buildGameStats = () => ({
   linesCompleted: 0,
   linesPerLevel: 10,
   points: 0,
+  totalLines: 0,
 });
 
 export function useGameStats() {
@@ -12,6 +13,7 @@ export function useGameStats() {
 
   const addLinesCleared = useCallback((lines) => {
     setGameStats((previous) => {
+      const totalLines = previous.totalLines + lines;
       const points = previous.points + lines * 100;
       const { linesPerLevel } = previous;
       const newLinesCompleted = previous.linesCompleted + lines;
@@ -22,10 +24,11 @@ export function useGameStats() {
       const linesCompleted = newLinesCompleted % linesPerLevel;
 
       return {
-        level,
-        linesCompleted,
-        linesPerLevel,
-        points,
+        level: level,
+        linesCompleted: linesCompleted,
+        linesPerLevel: linesPerLevel,
+        points: points,
+        totalLines: totalLines,
       };
     }, []);
   }, []);
