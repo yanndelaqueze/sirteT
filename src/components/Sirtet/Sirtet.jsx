@@ -11,6 +11,7 @@ export function Sirtet({ rows, columns, setGameOver }) {
   const [gameStats, addLinesCleared] = useGameStats();
 
   const [player, setPlayer, resetPlayer] = usePlayer();
+  console.log("player:", player);
 
   const [board, setBoard] = useBoard({
     rows,

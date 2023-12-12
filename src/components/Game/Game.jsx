@@ -32,8 +32,6 @@ export function Game() {
     resetGameOver();
   }
 
-  console.log("rows:", rows);
-  console.log("cols:", columns);
   return (
     <div className={s.container}>
       {gameOver ? (
