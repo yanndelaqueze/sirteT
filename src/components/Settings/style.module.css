@@ -1,7 +1,46 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.board_size {
+  width: 200px;
+  border: solid;
+  border-color: white;
+  padding: 10px;
+}
+
+.size_adjust {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.size {
+  font-size: 25px;
+}
+
 .add {
   cursor: pointer;
+  font-size: 35px;
+  border: solid white;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .remove {
   cursor: pointer;
+  font-size: 35px;
+  border: solid white;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

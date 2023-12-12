@@ -1,14 +1,22 @@
 import s from "./style.module.css";
 
-export function Settings({ onClickAdd, onClickRemove }) {
+export function Settings({ onClickAdd, onClickRemove, rows, columns }) {
   return (
-    <div>
+    <div className={s.container}>
       <h1>GAME SETTINGS</h1>
-      <div className={s.add} onClick={onClickAdd}>
-        BIGGER +
-      </div>
-      <div className={s.remove} onClick={onClickRemove}>
-        SMALLER -
+      <div className={s.board_size}>
+        <h2 className="text-center">Board Size</h2>
+        <div className={s.size_adjust}>
+          <div className={s.add} onClick={onClickAdd}>
+            +
+          </div>
+          <div className={s.size}>
+            {rows} x {columns}
+          </div>
+          <div className={s.remove} onClick={onClickRemove}>
+            -
+          </div>
+        </div>
       </div>
     </div>
   );

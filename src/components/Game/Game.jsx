@@ -39,7 +39,12 @@ export function Game() {
       {gameOver ? (
         <>
           <Menu onClick={start} />
-          <Settings onClickAdd={increaseBoard} onClickRemove={decreaseBoard} />
+          <Settings
+            onClickAdd={increaseBoard}
+            onClickRemove={decreaseBoard}
+            rows={rows}
+            columns={columns}
+          />
         </>
       ) : (
         <Sirtet rows={rows} columns={columns} setGameOver={setGameOver} />
