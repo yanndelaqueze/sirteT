@@ -7,10 +7,10 @@ export const GameStats = memo(({ gameStats }) => {
   const linesToLevel = linesPerLevel - linesCompleted;
 
   return (
-    <ul className={`${s.game_stats} ${s.game_stats_right}`}>
+    <ul className={`${s.game_stats} ${s.game_stats}`}>
       <li>Level</li>
       <li className={s.value}>{level}</li>
-      <li>Lines to level</li>
+      <li>Lines to next level</li>
       <li className={s.value}>{linesToLevel}</li>
       <li>Points</li>
       <li className={s.value}>{points}</li>

@@ -1,9 +1,9 @@
 .preview {
-  position: absolute;
+  margin-top: 2em;
+  margin-left: 2em;
   top: 0;
   left: 72.2vw;
-  background: #03071e;
-  border: 10px solid rgba(0, 0, 0, 0);
+  border: 10px solid black;
   border-radius: 10px;
 }
 
@@ -12,8 +12,8 @@
   grid-gap: 2px;
   grid-template-rows: repeat(4, 1fr);
   grid-template-columns: repeat(4, 1fr);
-  width: 11vw;
-  height: 11vw;
+  width: 8vw;
+  height: 8vw;
   background-color: #580aff;
   border-radius: 10px;
   padding: 5px;

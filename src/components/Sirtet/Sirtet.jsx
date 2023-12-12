@@ -23,9 +23,15 @@ export function Sirtet({ rows, columns, setGameOver }) {
 
   return (
     <div className={s.sirtet}>
-      <Board board={board} />
-      <GameStats gameStats={gameStats} />
-      <Previews tetrominoes={player.tetrominoes} />
+      <div className="col-4">
+        <GameStats gameStats={gameStats} />
+      </div>
+      <div className="col-4">
+        <Board board={board} />
+      </div>
+      <div className="col-4">
+        <Previews tetrominoes={player.tetrominoes} />
+      </div>
       <GameController
         board={board}
         gameStats={gameStats}

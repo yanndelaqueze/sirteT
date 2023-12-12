@@ -4,7 +4,6 @@ import { Sirtet } from "../Sirtet/Sirtet";
 import { useGameOver } from "../../hooks/useGameOver";
 import { useState } from "react";
 import { Settings } from "../Settings/Settings";
-import logo from "../../assets/images/logo.png";
 
 export function Game() {
   const [gameOver, setGameOver, resetGameOver] = useGameOver();
@@ -37,9 +36,6 @@ export function Game() {
     <div className={s.container}>
       {gameOver ? (
         <>
-          <div className={s.logo}>
-            <img src={logo} alt="" />
-          </div>
           <Menu onClick={start} />
           <Settings
             onClickAdd={increaseBoard}

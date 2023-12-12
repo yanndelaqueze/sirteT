@@ -1,17 +1,15 @@
 .game_stats {
-  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-top: 2em;
   width: 25vw;
   list-style-type: none;
   color: rgba(255, 255, 255, 0.5);
 }
 
-.game_stats_left {
-  right: 0;
-  bottom: 22vh;
-  text-align: left;
-}
-
-.game_stats_right {
+.game_stats {
+  margin-right: 2em;
   right: 0;
   bottom: 0;
   text-align: left;
@@ -19,6 +17,6 @@
 
 .game_stats .value {
   font-size: 2.8rem;
-  margin-bottom: 0.5em;
+
   color: rgba(255, 255, 255, 1);
 }
