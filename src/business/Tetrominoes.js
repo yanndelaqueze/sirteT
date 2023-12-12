@@ -97,3 +97,62 @@ export function transferToBoard({
   });
   return rows;
 }
+
+export const TETROMINOES_GREY = {
+  I: {
+    shape: [
+      [0, 1, 0, 0],
+      [0, 1, 0, 0],
+      [0, 1, 0, 0],
+      [0, 1, 0, 0],
+    ],
+    className: `${className} ${className}__i grey`,
+  },
+  J: {
+    shape: [
+      [0, 1, 0],
+      [0, 1, 0],
+      [1, 1, 0],
+    ],
+    className: `${className} ${className}__j grey`,
+  },
+  L: {
+    shape: [
+      [0, 1, 0],
+      [0, 1, 0],
+      [0, 1, 1],
+    ],
+    className: `${className} ${className}__l grey`,
+  },
+  O: {
+    shape: [
+      [1, 1],
+      [1, 1],
+    ],
+    className: `${className} ${className}__o grey`,
+  },
+  S: {
+    shape: [
+      [0, 1, 1],
+      [1, 1, 0],
+      [0, 0, 0],
+    ],
+    className: `${className} ${className}__s grey`,
+  },
+  T: {
+    shape: [
+      [1, 1, 1],
+      [0, 1, 0],
+      [0, 0, 0],
+    ],
+    className: `${className} ${className}__t grey`,
+  },
+  Z: {
+    shape: [
+      [1, 1, 0],
+      [0, 1, 1],
+      [0, 0, 0],
+    ],
+    className: `${className} ${className}__z grey`,
+  },
+};

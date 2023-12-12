@@ -32,23 +32,45 @@
 }
 
 .tetromino__i {
-  background-color: #9d0208;
+  background-color: #ff0000;
 }
 .tetromino__j {
-  background-color: #dc2f02;
+  background-color: #ff8700;
 }
 .tetromino__l {
-  background-color: #faa307;
+  background-color: #deff0a;
 }
 .tetromino__o {
-  background-color: #ffba08;
+  background-color: #a1ff0a;
 }
 .tetromino__s {
-  background-color: #f48c06;
+  background-color: #0aff99;
 }
 .tetromino__t {
-  background-color: #e85d04;
+  background-color: #be0aff;
 }
 .tetromino__z {
-  background-color: #d00000;
+  background-color: #0aefff;
+}
+
+.tetromino__i .grey {
+  background-color: #eeeeee;
+}
+.tetromino__j .grey {
+  background-color: #dddddd;
+}
+.tetromino__l .grey {
+  background-color: black;
+}
+.tetromino__o .grey {
+  background-color: #cccccc;
+}
+.tetromino__s .grey {
+  background-color: #bbbbbb;
+}
+.tetromino__t .grey {
+  background-color: #a3a3a3;
+}
+.tetromino__z .grey {
+  background-color: white;
 }
