@@ -1,8 +1,7 @@
 .container {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   align-items: center;
-  justify-content: center;
 }
 
 .board_size {
@@ -14,7 +13,7 @@
   border: solid;
   border-color: white;
   padding: 10px;
-  margin-bottom: 10px;
+  margin: 10px;
 }
 
 .size_adjust {
@@ -64,17 +63,20 @@
   border: solid;
   border-color: white;
   padding: 10px;
-  margin-bottom: 10px;
+  margin: 10px;
 }
 
-.dark_mode {
+.mode_switch {
   display: flex;
   cursor: pointer;
   margin-left: 5px;
 }
 
-.color_mode {
-  display: flex;
-  cursor: pointer;
-  margin-left: 5px;
+.reverse {
+  width: 200px;
+  height: 130px;
+  border: solid;
+  border-color: white;
+  padding: 10px;
+  margin: 10px;
 }
