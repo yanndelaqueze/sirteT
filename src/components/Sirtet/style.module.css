@@ -1,3 +1,14 @@
 .sirtet {
   display: flex;
 }
+
+.game_stats {
+  margin-right: 50px;
+}
+
+.board {
+}
+
+.previews {
+  margin-left: 50px;
+}

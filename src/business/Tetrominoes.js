@@ -59,11 +59,77 @@ export const TETROMINOES = {
   },
 };
 
-export function randomTetromino() {
-  const keys = Object.keys(TETROMINOES);
-  const index = Math.floor(Math.random() * keys.length);
-  const key = keys[index];
-  return TETROMINOES[key];
+export const TETROMINOES_DARK = {
+  I: {
+    shape: [
+      [0, 1, 0, 0],
+      [0, 1, 0, 0],
+      [0, 1, 0, 0],
+      [0, 1, 0, 0],
+    ],
+    className: `${className} ${className}__i dark`,
+  },
+  J: {
+    shape: [
+      [0, 1, 0],
+      [0, 1, 0],
+      [1, 1, 0],
+    ],
+    className: `${className} ${className}__j dark`,
+  },
+  L: {
+    shape: [
+      [0, 1, 0],
+      [0, 1, 0],
+      [0, 1, 1],
+    ],
+    className: `${className} ${className}__l dark`,
+  },
+  O: {
+    shape: [
+      [1, 1],
+      [1, 1],
+    ],
+    className: `${className} ${className}__o dark`,
+  },
+  S: {
+    shape: [
+      [0, 1, 1],
+      [1, 1, 0],
+      [0, 0, 0],
+    ],
+    className: `${className} ${className}__s dark`,
+  },
+  T: {
+    shape: [
+      [1, 1, 1],
+      [0, 1, 0],
+      [0, 0, 0],
+    ],
+    className: `${className} ${className}__t dark`,
+  },
+  Z: {
+    shape: [
+      [1, 1, 0],
+      [0, 1, 1],
+      [0, 0, 0],
+    ],
+    className: `${className} ${className}__z dark`,
+  },
+};
+
+export function randomTetromino(darkMode) {
+  if (darkMode) {
+    const keys = Object.keys(TETROMINOES_DARK);
+    const index = Math.floor(Math.random() * keys.length);
+    const key = keys[index];
+    return TETROMINOES_DARK[key];
+  } else {
+    const keys = Object.keys(TETROMINOES);
+    const index = Math.floor(Math.random() * keys.length);
+    const key = keys[index];
+    return TETROMINOES[key];
+  }
 }
 
 export const rotate = ({ piece, direction }) => {
@@ -97,62 +163,3 @@ export function transferToBoard({
   });
   return rows;
 }
-
-export const TETROMINOES_GREY = {
-  I: {
-    shape: [
-      [0, 1, 0, 0],
-      [0, 1, 0, 0],
-      [0, 1, 0, 0],
-      [0, 1, 0, 0],
-    ],
-    className: `${className} ${className}__i grey`,
-  },
-  J: {
-    shape: [
-      [0, 1, 0],
-      [0, 1, 0],
-      [1, 1, 0],
-    ],
-    className: `${className} ${className}__j grey`,
-  },
-  L: {
-    shape: [
-      [0, 1, 0],
-      [0, 1, 0],
-      [0, 1, 1],
-    ],
-    className: `${className} ${className}__l grey`,
-  },
-  O: {
-    shape: [
-      [1, 1],
-      [1, 1],
-    ],
-    className: `${className} ${className}__o grey`,
-  },
-  S: {
-    shape: [
-      [0, 1, 1],
-      [1, 1, 0],
-      [0, 0, 0],
-    ],
-    className: `${className} ${className}__s grey`,
-  },
-  T: {
-    shape: [
-      [1, 1, 1],
-      [0, 1, 0],
-      [0, 0, 0],
-    ],
-    className: `${className} ${className}__t grey`,
-  },
-  Z: {
-    shape: [
-      [1, 1, 0],
-      [0, 1, 1],
-      [0, 0, 0],
-    ],
-    className: `${className} ${className}__z grey`,
-  },
-};

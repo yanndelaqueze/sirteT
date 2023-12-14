@@ -6,6 +6,9 @@ export function Settings({
   rows,
   columns,
   onClickReset,
+  onClickColorMode,
+  onClickDarkMode,
+  darkMode,
 }) {
   return (
     <div className={s.container}>
@@ -24,7 +27,18 @@ export function Settings({
           </div>
         </div>
         <div className={s.reset} onClick={onClickReset}>
-          <h3>Reset</h3>
+          <h5>Reset</h5>
+        </div>
+      </div>
+      <div className={s.mode}>
+        <h2 className="text-center">Mode</h2>
+        <div className={s.dark_mode}>
+          {darkMode && <h4>→</h4>}
+          <h4 onClick={onClickColorMode}>Dark Mode</h4>
+        </div>
+        <div className={s.color_mode}>
+          {!darkMode && <h4>→</h4>}
+          <h4 onClick={onClickDarkMode}>Color Mode</h4>
         </div>
       </div>
     </div>

@@ -10,6 +10,7 @@ export function Game() {
   const [gameOver, setGameOver, resetGameOver] = useGameOver();
   const [rows, setRows] = useState(20);
   const [columns, setColumns] = useState(10);
+  const [darkMode, setDarkMode] = useState(false);
 
   function increaseBoard() {
     if (rows >= 50) {
@@ -38,11 +39,19 @@ export function Game() {
     resetGameOver();
   }
 
+  function setMode() {
+    if (darkMode) {
+      setDarkMode(false);
+    } else {
+      setDarkMode(true);
+    }
+  }
+
   return (
     <div className={s.container}>
-      <img src={logo} alt="" className={s.logo} />
       {gameOver ? (
         <>
+          <img src={logo} alt="" className={s.logo} />
           <Menu onClick={start} />
           <Settings
             onClickAdd={increaseBoard}
@@ -50,10 +59,18 @@ export function Game() {
             onClickReset={resetBoard}
             rows={rows}
             columns={columns}
+            onClickColorMode={setMode}
+            onClickDarkMode={setMode}
+            darkMode={darkMode}
           />
         </>
       ) : (
-        <Sirtet rows={rows} columns={columns} setGameOver={setGameOver} />
+        <Sirtet
+          rows={rows}
+          columns={columns}
+          setGameOver={setGameOver}
+          darkMode={darkMode}
+        />
       )}
     </div>
   );

@@ -1,16 +1,16 @@
 import { useState, useCallback } from "react";
 import { randomTetromino } from "../business/Tetrominoes";
 
-function buildPlayer(previous) {
+function buildPlayer(previous, darkMode) {
   let tetrominoes;
 
   if (previous) {
     tetrominoes = [...previous.tetrominoes];
-    tetrominoes.unshift(randomTetromino());
+    tetrominoes.unshift(randomTetromino(darkMode));
   } else {
     tetrominoes = Array(5)
       .fill(0)
-      .map((_) => randomTetromino());
+      .map((_) => randomTetromino(darkMode));
   }
 
   return {
@@ -22,11 +22,11 @@ function buildPlayer(previous) {
   };
 }
 
-export function usePlayer() {
-  const [player, setPlayer] = useState(buildPlayer());
+export function usePlayer(darkMode) {
+  const [player, setPlayer] = useState(buildPlayer(undefined, darkMode));
 
   const resetPlayer = useCallback(() => {
-    setPlayer((prev) => buildPlayer(prev));
-  }, []);
+    setPlayer((prev) => buildPlayer(prev, darkMode));
+  }, [darkMode]);
   return [player, setPlayer, resetPlayer];
 }

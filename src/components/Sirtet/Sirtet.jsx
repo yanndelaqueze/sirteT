@@ -7,10 +7,10 @@ import { usePlayer } from "../../hooks/usePlayer";
 import { Previews } from "../Previews/Previews";
 import { GameController } from "../GameController/GameController";
 
-export function Sirtet({ rows, columns, setGameOver }) {
+export function Sirtet({ rows, columns, setGameOver, darkMode }) {
   const [gameStats, addLinesCleared] = useGameStats();
 
-  const [player, setPlayer, resetPlayer] = usePlayer();
+  const [player, setPlayer, resetPlayer] = usePlayer(darkMode);
   console.log("player:", player);
 
   const [board, setBoard] = useBoard({
@@ -23,13 +23,13 @@ export function Sirtet({ rows, columns, setGameOver }) {
 
   return (
     <div className={s.sirtet}>
-      <div className="col-4">
+      <div className={`col-4 ${s.game_stats}`}>
         <GameStats gameStats={gameStats} />
       </div>
-      <div className="col-4">
+      <div className={`col-4 ${s.board}`}>
         <Board board={board} />
       </div>
-      <div className="col-4">
+      <div className={`col-4 ${s.previews}`}>
         <Previews tetrominoes={player.tetrominoes} />
       </div>
       <GameController

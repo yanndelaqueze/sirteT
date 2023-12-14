@@ -22,7 +22,23 @@
   border-radius: 4px 4px;
 }
 
+.tetromino.dark.sparkle {
+  position: absolute;
+  z-index: 10;
+  width: 6px;
+  height: 6px;
+  left: -2px;
+  top: -2px;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 4px 4px;
+}
+
 .tetromino.ghost {
+  background-color: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.tetromino.ghost.dark {
   background-color: transparent;
   border: 2px solid rgba(255, 255, 255, 0.2);
 }
@@ -53,24 +69,24 @@
   background-color: #0aefff;
 }
 
-.tetromino__i.grey {
+.tetromino__i.dark {
   background-color: #eeeeee;
 }
-.tetromino__j.grey {
+.tetromino__j.dark {
   background-color: #dddddd;
 }
-.tetromino__l.grey {
+.tetromino__l.dark {
   background-color: black;
 }
-.tetromino__o.grey {
+.tetromino__o.dark {
   background-color: #cccccc;
 }
-.tetromino__s.grey {
+.tetromino__s.dark {
   background-color: #bbbbbb;
 }
-.tetromino__t.grey {
+.tetromino__t.dark {
   background-color: #a3a3a3;
 }
-.tetromino__z.grey {
+.tetromino__z.dark {
   background-color: white;
 }
