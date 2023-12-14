@@ -1,6 +1,12 @@
 import s from "./style.module.css";
 
-export function Settings({ onClickAdd, onClickRemove, rows, columns }) {
+export function Settings({
+  onClickAdd,
+  onClickRemove,
+  rows,
+  columns,
+  onClickReset,
+}) {
   return (
     <div className={s.container}>
       <h1>GAME SETTINGS</h1>
@@ -16,6 +22,9 @@ export function Settings({ onClickAdd, onClickRemove, rows, columns }) {
           <div className={s.remove} onClick={onClickRemove}>
             -
           </div>
+        </div>
+        <div className={s.reset} onClick={onClickReset}>
+          <h3>Reset</h3>
         </div>
       </div>
     </div>

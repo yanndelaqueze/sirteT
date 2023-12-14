@@ -4,6 +4,7 @@ import { Sirtet } from "../Sirtet/Sirtet";
 import { useGameOver } from "../../hooks/useGameOver";
 import { useState } from "react";
 import { Settings } from "../Settings/Settings";
+import logo from "../../assets/images/logo.png";
 
 export function Game() {
   const [gameOver, setGameOver, resetGameOver] = useGameOver();
@@ -28,18 +29,25 @@ export function Game() {
     }
   }
 
+  function resetBoard() {
+    setRows(20);
+    setColumns(10);
+  }
+
   function start() {
     resetGameOver();
   }
 
   return (
     <div className={s.container}>
+      <img src={logo} alt="" className={s.logo} />
       {gameOver ? (
         <>
           <Menu onClick={start} />
           <Settings
             onClickAdd={increaseBoard}
             onClickRemove={decreaseBoard}
+            onClickReset={resetBoard}
             rows={rows}
             columns={columns}
           />
