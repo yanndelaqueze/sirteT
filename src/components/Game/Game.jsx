@@ -5,6 +5,7 @@ import { useGameOver } from "../../hooks/useGameOver";
 import { useState } from "react";
 import { Settings } from "../Settings/Settings";
 import logo from "../../assets/images/logo.png";
+import logoDark from "../../assets/images/logo_dark.png";
 
 export function Game() {
   const [gameOver, setGameOver, resetGameOver] = useGameOver();
@@ -68,12 +69,20 @@ export function Game() {
     setStartLevel(1);
   }
 
+  function getLogo() {
+    if (darkMode) {
+      return <img src={logoDark} alt="" className={s.logo} />;
+    } else {
+      return <img src={logo} alt="" className={s.logo} />;
+    }
+  }
+
   return (
     <div className={s.container}>
       {gameOver ? (
         <>
-          <img src={logo} alt="" className={s.logo} />
-          <Menu onClick={start} />
+          {getLogo()}
+          <Menu onClick={start} darkMode={darkMode} />
           <Settings
             onClickAdd={increaseBoard}
             onClickRemove={decreaseBoard}

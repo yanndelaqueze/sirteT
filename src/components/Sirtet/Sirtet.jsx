@@ -27,10 +27,10 @@ export function Sirtet({ rows, columns, setGameOver, darkMode, startLevel }) {
         <GameStats gameStats={gameStats} />
       </div>
       <div className={`col-4 ${s.board}`}>
-        <Board board={board} />
+        <Board board={board} darkMode={darkMode} />
       </div>
       <div className={`col-4 ${s.previews}`}>
-        <Previews tetrominoes={player.tetrominoes} />
+        <Previews tetrominoes={player.tetrominoes} darkMode={darkMode} />
       </div>
       <GameController
         board={board}

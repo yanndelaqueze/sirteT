@@ -14,7 +14,7 @@
   grid-template-columns: repeat(4, 1fr);
   width: 8vw;
   height: 8vw;
-  background-color: #580aff;
+  /* background-color: #580aff; */
   border-radius: 10px;
   padding: 5px;
 }
