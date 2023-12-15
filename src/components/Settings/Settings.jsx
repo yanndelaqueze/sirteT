@@ -9,6 +9,10 @@ export function Settings({
   onClickColorMode,
   onClickDarkMode,
   darkMode,
+  onClickIncreaseStartLevel,
+  onClickDecreaseStartLevel,
+  onClickResetStartLevel,
+  startLevel,
 }) {
   return (
     <>
@@ -55,17 +59,17 @@ export function Settings({
         </div>
 
         <div className={s.level}>
-          <h2 className="text-center">Level</h2>
+          <h2 className="text-center">Start Level</h2>
           <div className={s.level_adjust}>
-            <div className={s.add_level} onClick={() => {}}>
+            <div className={s.add_level} onClick={onClickIncreaseStartLevel}>
               +
             </div>
-            <div className={s.current_level}>LEVEL</div>
-            <div className={s.add_level} onClick={() => {}}>
+            <div className={s.current_level}>{startLevel}</div>
+            <div className={s.add_level} onClick={onClickDecreaseStartLevel}>
               -
             </div>
           </div>
-          <div className={s.reset_level} onClick={() => {}}>
+          <div className={s.reset_level} onClick={onClickResetStartLevel}>
             <h5>Reset</h5>
           </div>
         </div>

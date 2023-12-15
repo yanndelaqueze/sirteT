@@ -11,6 +11,7 @@ export function Game() {
   const [rows, setRows] = useState(20);
   const [columns, setColumns] = useState(10);
   const [darkMode, setDarkMode] = useState(false);
+  const [startLevel, setStartLevel] = useState(1);
 
   function increaseBoard() {
     if (rows >= 50) {
@@ -47,6 +48,28 @@ export function Game() {
     }
   }
 
+  function increaseStartLevel() {
+    if (startLevel >= 30) {
+      return;
+    } else {
+      setStartLevel((prevStartLevel) => prevStartLevel + 1);
+    }
+  }
+
+  function decreaseStartLevel() {
+    if (startLevel <= 1) {
+      return;
+    } else {
+      setStartLevel((prevStartLevel) => prevStartLevel + 1);
+    }
+  }
+
+  function resetStartLevel() {
+    setStartLevel(1);
+  }
+
+  console.log("start level: ", startLevel);
+
   return (
     <div className={s.container}>
       {gameOver ? (
@@ -62,6 +85,10 @@ export function Game() {
             onClickColorMode={setMode}
             onClickDarkMode={setMode}
             darkMode={darkMode}
+            onClickIncreaseStartLevel={increaseStartLevel}
+            onClickDecreaseStartLevel={decreaseStartLevel}
+            onClickResetStartLevel={resetStartLevel}
+            startLevel={startLevel}
           />
         </>
       ) : (
