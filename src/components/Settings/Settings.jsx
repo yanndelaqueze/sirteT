@@ -53,6 +53,22 @@ export function Settings({
             <h4>OFF</h4>
           </div>
         </div>
+
+        <div className={s.level}>
+          <h2 className="text-center">Level</h2>
+          <div className={s.level_adjust}>
+            <div className={s.add_level} onClick={() => {}}>
+              +
+            </div>
+            <div className={s.current_level}>LEVEL</div>
+            <div className={s.add_level} onClick={() => {}}>
+              -
+            </div>
+          </div>
+          <div className={s.reset_level} onClick={() => {}}>
+            <h5>Reset</h5>
+          </div>
+        </div>
       </div>
     </>
   );
