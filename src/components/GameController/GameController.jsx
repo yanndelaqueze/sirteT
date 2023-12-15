@@ -46,7 +46,7 @@ export function GameController({
 
   function handleInput({ action }) {
     playerController({
-      action,
+      action: action,
       board: board,
       player: player,
       setPlayer: setPlayer,
