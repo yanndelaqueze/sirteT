@@ -1,15 +1,15 @@
 import { useState, useCallback } from "react";
 
-const buildGameStats = () => ({
-  level: 1,
+const buildGameStats = (startLevel) => ({
+  level: startLevel,
   linesCompleted: 0,
   linesPerLevel: 10,
   points: 0,
   totalLines: 0,
 });
 
-export function useGameStats() {
-  const [gameStats, setGameStats] = useState(buildGameStats());
+export function useGameStats(startLevel) {
+  const [gameStats, setGameStats] = useState(buildGameStats(startLevel));
 
   const addLinesCleared = useCallback((lines) => {
     setGameStats((previous) => {

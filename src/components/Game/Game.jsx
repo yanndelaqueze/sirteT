@@ -68,8 +68,6 @@ export function Game() {
     setStartLevel(1);
   }
 
-  console.log("start level: ", startLevel);
-
   return (
     <div className={s.container}>
       {gameOver ? (
@@ -97,6 +95,7 @@ export function Game() {
           columns={columns}
           setGameOver={setGameOver}
           darkMode={darkMode}
+          startLevel={startLevel}
         />
       )}
     </div>

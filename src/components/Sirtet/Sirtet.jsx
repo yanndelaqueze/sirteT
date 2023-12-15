@@ -7,8 +7,8 @@ import { usePlayer } from "../../hooks/usePlayer";
 import { Previews } from "../Previews/Previews";
 import { GameController } from "../GameController/GameController";
 
-export function Sirtet({ rows, columns, setGameOver, darkMode }) {
-  const [gameStats, addLinesCleared] = useGameStats();
+export function Sirtet({ rows, columns, setGameOver, darkMode, startLevel }) {
+  const [gameStats, addLinesCleared] = useGameStats(startLevel);
 
   const [player, setPlayer, resetPlayer] = usePlayer(darkMode);
   console.log("player:", player);
