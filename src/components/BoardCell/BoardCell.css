@@ -70,23 +70,23 @@
 }
 
 .tetromino__i.dark {
-  background-color: #eeeeee;
+  background-color: #a9a9a9;
 }
 .tetromino__j.dark {
-  background-color: #dddddd;
+  background-color: #808080;
 }
 .tetromino__l.dark {
-  background-color: black;
+  background-color: #5a5e6b;
 }
 .tetromino__o.dark {
   background-color: #cccccc;
 }
 .tetromino__s.dark {
-  background-color: #bbbbbb;
+  background-color: #778899;
 }
 .tetromino__t.dark {
   background-color: #a3a3a3;
 }
 .tetromino__z.dark {
-  background-color: white;
+  background-color: #7f7f7f;
 }
