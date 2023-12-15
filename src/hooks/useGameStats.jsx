@@ -14,9 +14,27 @@ export function useGameStats() {
   const addLinesCleared = useCallback((lines) => {
     setGameStats((previous) => {
       const totalLines = previous.totalLines + lines;
-      const points = previous.points + lines * 100;
-      const { linesPerLevel } = previous;
       const newLinesCompleted = previous.linesCompleted + lines;
+      let points = previous.points;
+      switch (lines) {
+        case 1:
+          points = previous.points + previous.level * 100;
+          break;
+        case 2:
+          points = previous.points + previous.level * 300;
+          break;
+        case 3:
+          points = previous.points + previous.level * 500;
+          break;
+        case 4:
+          points = previous.points + previous.level * 800;
+          break;
+        default:
+          points = previous.points;
+          break;
+      }
+      // const points = previous.points + lines * 100;
+      const { linesPerLevel } = previous;
       const level =
         newLinesCompleted >= linesPerLevel
           ? previous.level + 1
